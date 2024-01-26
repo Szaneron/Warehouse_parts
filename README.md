@@ -7,23 +7,23 @@ API jest zbudowane przy użyciu Pythona i FastAPI i jest połączone z bazą dan
 FastAPI został wybrany ze względu na swoją wydajność, prostotę użycia, a także wbudowane wsparcie dla typów danych i automatyczne generowanie dokumentacji API. 
 FastAPI wykorzystuje typowanie statyczne, co zwiększa bezpieczeństwo kodu i ułatwia jego utrzymanie.
 
-
 - Proponuję odwiedzić **Endpoint:** **`/docs/`** pod którym znajduje się automatyczna dokumentacja wszystkich endpointów. Jest bardzo przyjrzysta i umożliwia testowanie wszystkich endpointów z jendego miejsca.
 
 
 ## Uruchamianie Aplikacji
 
 ### Pierwszy sposób - Docker
+Mój Docker Hub z repozytorium do tego projektu: `https://hub.docker.com/repository/docker/szaneron/warehouse_api`
 
 1. **Zainstaluj Docker:** 
-
-2. **Pobierz Obraz z Docker Hub:**
+    
+3. **Pobierz Obraz z Docker Hub:**
 
     ```bash
     docker pull szaneron/warehouse_api:final
     ```
-
-3. **Uruchom Aplikację: (ważne aby przekazać zmienną środowiskową "MongoDb connection string")**
+    
+4. **Uruchom Aplikację: (ważne aby przekazać zmienną środowiskową "MongoDb connection string")**
 
     ```bash
     docker run -p 8000:80 -e MONGO_URL="recruitment_mongo_connection_string" szaneron/warehouse_api:final
