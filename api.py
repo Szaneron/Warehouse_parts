@@ -5,14 +5,19 @@ from bson import ObjectId
 from typing import List
 from models import Category, Part
 from bson.errors import InvalidId
+import os
+from dotenv import load_dotenv
 
 app = FastAPI()
+
+# Load .env file
+load_dotenv()
 
 # Run the initialization script
 init_database()
 
 # Configuration variables
-mongo_url = "mongodb+srv://admin:admin@test0.kw6oixv.mongodb.net"
+mongo_url = os.getenv('MONGO_URL')
 database_name = "armin_bolen"
 client = AsyncIOMotorClient(mongo_url, uuidRepresentation="standard")
 database = client[database_name]

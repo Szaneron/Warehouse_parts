@@ -1,7 +1,12 @@
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
+
+# Load .env file
+load_dotenv()
 
 # Configuration variables
-mongo_url = "mongodb+srv://admin:admin@test0.kw6oixv.mongodb.net"
+mongo_url = os.getenv('MONGO_URL')
 database_name = "armin_bolen"
 
 
