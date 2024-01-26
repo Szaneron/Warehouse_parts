@@ -1,0 +1,120 @@
+# Test your FastAPI endpoints
+
+#1. Create a new category
+POST http://127.0.0.1:8000/categories/
+Content-Type: application/json
+
+{
+  "name": "Diodes",
+  "parent_name": "Electronics"
+}
+
+###
+
+#2. Get all categories
+GET http://127.0.0.1:8000/categories/
+Accept: application/json
+
+###
+#3. Get details of category with given ID
+# (change {category_id} to proper id)
+GET http://127.0.0.1:8000/categories/{category_id}
+Accept: application/json
+
+###
+
+#4. Update the category with the given ID
+# (change {category_id} to proper id)
+PUT http://127.0.0.1:8000/categories/{category_id}
+Content-Type: application/json
+
+{
+  "name": "Updated Diodes",
+  "parent_name": "Electronics"
+}
+
+###
+
+#5. Delete the category with a given ID
+# (change {category_id} to proper id)
+DELETE http://127.0.0.1:8000/categories/{category_id}
+Accept: application/json
+
+###
+
+#6. Create a new part
+POST http://127.0.0.1:8000/parts/
+Content-Type: application/json
+
+{
+  "serial_number": "5903351244152",
+  "name": "Test Part",
+  "description": "This is a test part",
+  "category": "Resistors",
+  "quantity": 40,
+  "price": 9.99,
+  "location": {
+    "room": "A1",
+    "bookcase": "B2",
+    "shelf": "C3",
+    "cuvette": "D4",
+    "column": 1,
+    "row": 1
+  }
+}
+
+###
+
+#7. Get all parts
+GET http://127.0.0.1:8000/parts/
+Accept: application/json
+
+###
+
+#8. Get the part details of a given ID
+# (change {part_id} to proper id)
+GET http://127.0.0.1:8000/parts/{part_id}
+Accept: application/json
+
+###
+
+#9. Update the part with the given ID
+# (change {part_id} to proper id)
+PUT http://127.0.0.1:8000/parts/{part_id}
+Content-Type: application/json
+
+{
+  "serial_number": "5903351244152",
+  "name": "Updated Part",
+  "description": "This is an updated part",
+  "category": "Resistors",
+  "quantity": 5,
+  "price": 24.99,
+  "location": {
+    "room": "A2",
+    "bookcase": "B1",
+    "shelf": "C2",
+    "cuvette": "D3",
+    "column": 2,
+    "row": 2
+  }
+}
+
+###
+
+# 10. Delete the part with a given ID
+# (change {part_id} to proper id)
+DELETE http://127.0.0.1:8000/parts/{part_id}
+Accept: application/json
+
+###
+
+# 11. Search for a part through the search filter
+GET http://127.0.0.1:8000/parts/search/?serial_number=5512
+Accept: application/json
+
+###
+
+# 12. Search for a part through the search filter
+GET http://127.0.0.1:8000/parts/search/?row=4
+Accept: application/json
